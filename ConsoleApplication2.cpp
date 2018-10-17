@@ -248,6 +248,11 @@ int main() {
 }
 */
 
+/*
+	title: º¼µç2008 
+*/
+
+/*
 #include <iostream>
 using namespace std;
 
@@ -269,3 +274,22 @@ int main() {
 	}
 	return 0;
 }
+*/
+#include <iostream>
+#include <Math.h>
+using namespace std;
+
+int main() {
+	int num1,num2;
+	while (cin >> num1 >> num2 && num1 < 10000 && num2 < 1000) {
+		double total = num1, temp = num1;
+		for (int i = 1; i < num2; i++) {
+			temp = sqrt(temp);
+			total = total + temp;
+		}
+		cout.precision(2);
+		cout << fixed << total << endl;
+	}
+	return 0;
+}
+
