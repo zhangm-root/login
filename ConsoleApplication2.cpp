@@ -411,21 +411,33 @@ int main() {
 using namespace std;
 
 int main(){
-	int num;
+	int num, min, j;
 	while (cin >> num && num < 100){
 		int *p=new int[num];
-		int flag = 0;
 		for (int i = 0; i < num; i++){
 			cin >> p[i];
-			if (flag == 0){
-				p[0] == num1;
+			if (i == 0){
+				min = p[0];
 				flag++;
 			}else{
-				if (num1 > p[0]){
-					
+				if (min > p[i]){
+					min = p[i];
+					j = i;
 				}
 			}
 		}
+		temp=p[0];
+		p[0]=min;
+		p[j]=temp;
+		for (int i=0;i<n;i++)
+		{
+			if (i!=0){
+				cout<<" ";//数与数之间用空格分开
+			}
+			cout<<p[i];
+		}
+		cout<<endl;
+		delete p;//记着delete释放空间
 	}
 	return 0;
 }
@@ -487,7 +499,7 @@ return 0;
 	title：杭电2017
 */
 
-
+/*
 #include <iostream>
 #include <string>
 using namespace std;
@@ -509,4 +521,96 @@ int main() {
 	}
 	return 0;
 }
+*/
 
+/*
+	杭电2013
+*/
+/*
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int num;
+	while (cin >> num && num > 1 && num < 30) {
+		int total = 1;
+		while (num>=2) {
+			total = (total + 1) * 2;
+			num--;
+		}
+		cout << total << endl;
+	}
+	return 0;
+}
+*/
+
+/*
+	
+*/
+
+/*
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int main() {
+	int num;
+	while (cin >> num ) {
+		if (num == 0)
+			return 0;
+		int* p = new int[num];
+		for (int i = 0; i < num; i++)
+			cin >> p[i];
+		sort(p, p+num);
+		for (int i = 0; i < num; i++) {
+			if (i == 0)
+				cout << p[0];
+			else
+			{
+				cout << ' ' << p[i];
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+}
+*/
+
+/*
+	
+*/
+/*
+#include <iostream>
+using namespace std;
+
+int makeNum(int money);
+
+int main() {
+	int num, num1;
+	while (cin >> num) {
+		if (num == 0)
+			return 0;
+		int total = 0;
+		for (int i = 0; i < num; i++) {
+			cin >> num1;
+			total += makeNum(num1);
+		}
+		cout << total << endl;
+	}
+	return 0;
+}
+
+int makeNum(int money) {
+	int base[] = {100, 50, 20, 10, 5, 2, 1};
+	int num = 0;
+	for (int i = 0; i < sizeof(base)/sizeof(base[0]); i++) {
+		int temp = money / base[i];
+		if (temp > 0) {
+			num += temp;
+			money = money - (base[i]*temp);
+		}
+	}
+	return num;
+}
+*/
